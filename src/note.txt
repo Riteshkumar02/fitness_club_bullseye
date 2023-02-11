@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import './App.css';
-import { useState} from 'react';
+
 function App() {
 
   const [name, setName] = useState();
@@ -25,34 +26,21 @@ function App() {
     e.preventDefault();
     setStat(false);
   }
+
   if (stat) {
     return (
       <div className="App">
-        <div className="outer">
-
-          <div id="alpha" >
+        <div id="container">
+          <p id="Heading">Fitness Club Registration</p>
           <form onSubmit={store}>
-            <input type="text" placeholder='Name' onChange={(e) => { setName(e.target.value) }} className="letter"  required /><br />
-            <input type="text" placeholder='Email' onChange={(e) => { setEmail(e.target.value) }} className="letter" required/><br />
-            <input type="text" placeholder='Phone Number' onChange={(e) => { setPhone(e.target.value) }} className="letter"required /><br></br>
-            <input type="text" placeholder='Address'  className="letter"  onChange={(e) => { setAddress(e.target.value) }}required /><br/>
-            <input type="submit" id="submit" className='butt' value="Add Member"></input>
-
-            {/* <input type="submit" id="submit" value="Add Member" onChange={(e) => { set(e.target.value) }}></input> */}
-
-
+            <input type="text" placeholder="Name" onChange={(e) => { setName(e.target.value) }} required></input><br />
+            <input type="text" placeholder="Email" onChange={(e) => { setEmail(e.target.value) }} required></input><br />
+            <input type="number" placeholder="Phone number" onChange={(e) => { setPhone(e.target.value) }} required></input><br />
+            <input type="text" placeholder="address" onChange={(e) => { setAddress(e.target.value) }} required></input><br />
+            <input type="submit" id="submit" value="Add Member"></input>
           </form>
-
-          </div>
-          <br />
-
-
-          {/* <button  type="submit" id="submit" value="Add Member" className='butt'>Add member</button> */}
-
         </div>
-        {/* <button id="outbutt">View Member List</button> */}
         <input type="submit" id="showData" value="View Member List" onClick={Members}></input>
-
       </div>
     );
   }
@@ -76,10 +64,9 @@ function App() {
             </tr>
           </table>
         </div>
-        <input type="submit" className="outbutt" value="View Member List" onClick={Members}></input>
+        <input type="submit" id="showData" value="View Member List" onClick={Members}></input>
       </div>
     );
   }
 }
-
 export default App;
